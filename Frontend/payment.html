@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>Payment</h1>
+
+    <div class="payment-container" id="payment-container">
+        <h2>Order Summary</h2>
+
+        <div class="form-group">
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" placeholder="Enter your email" required>
+        </div>
+
+        <div class="items-list" id="items-list"></div>
+        <div class="total-section" id="total-section"></div>
+
+        <h3>Select Payment Method</h3>
+        <div class="form-group">
+            <select id="payment-method" onchange="togglePaymentFields()">
+                <option value="card">Card Payment</option>
+                <option value="upi">UPI Payment</option>
+            </select>
+        </div>
+
+        <div id="card-payment" class="payment-method">
+            <div class="form-group">
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" maxlength="19" oninput="formatCardNumber(this)" required>
+
+            </div>
+            <div class="form-group">
+                <label for="cardExpiry">Expiry Date:</label>
+                <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cardCVV">CVV:</label>
+                <input type="password" id="cardCVV" placeholder="CVV" required>
+            </div>
+        </div>
+
+        <div id="upi-payment" class="payment-method" style="display: none;">
+            <div class="form-group">
+                <label for="upiId">UPI ID:</label>
+                <input type="text" id="upiId" placeholder="Enter UPI ID" required>
+            </div>
+            <p>Or scan the QR code below:</p>
+            <img src="qr-code-placeholder.png" alt="UPI QR Code" width="150">
+        </div>
+
+        <button class="btn generate-receipt-btn" onclick="generateReceipt()">Generate Receipt</button>
+        <button class="btn back-to-menu-btn" onclick="goBackToMenu()">Back to Menu</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

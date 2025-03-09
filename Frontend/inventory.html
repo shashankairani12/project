@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="container">
+        <h2>Inventory Management</h2>
+        <input type="text" id="itemName" placeholder="Item Name">
+        <input type="number" id="itemQuantity" placeholder="Quantity" min="1" value="1">
+        <input type="number" id="itemPrice" placeholder="Price" min="1" value="1">
+        <select id="weightType">
+            <option value="kg">kg</option>
+            <option value="nos">N.os</option>
+        </select>
+        <button onclick="addItem()" style="background: #007BFF; color: white;">Add Item</button>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity (Weight)</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryTable"></tbody>
+        </table>
+    </div>
+    <script src="script.js">  
+    </script>
+</body>
+</html>
